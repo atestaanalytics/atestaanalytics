@@ -313,12 +313,20 @@
   }
   .section-title em { font-style: italic; color: var(--ink-mid); }
   .section-body {
-    font-size: 17px;
+    font-size: 17.5px;
     color: var(--ink-mid);
     line-height: 1.7;
     max-width: 620px;
   }
-
+  .section-body-secondary {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    font-style: italic;
+    line-height: 1.7;
+    margin-top: 20px;
+    padding-left: 16px;
+    border-left: 2px solid rgba(255,255,255,0.15);
+  }
   /* ── PERSONA SECTIONS ── */
   .persona-section {
     padding: 90px 2rem;
@@ -409,7 +417,7 @@
     box-shadow: var(--shadow);
     margin-top:62px;
   }
-  .persona-card-image img { width:520px; }
+  .persona-card-image img { width: 100%; height: auto; display: block; }
   .persona-card.dark {
     background: var(--runway);
     border-color: rgba(255,255,255,0.08);
@@ -625,13 +633,25 @@
     border-radius: var(--radius-lg);
     padding: 32px;
     box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
   }
-  .product-logo { height: 32px; margin-bottom: 16px; }
+  .product-logo {
+    object-fit: contain;
+    height: 32px;
+    margin-bottom: 16px;
+  }
   .product-name {
     font-size: 16px;
     font-weight: 600;
     color: var(--ink);
     margin-bottom: 8px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+
   }
   .product-desc {
     font-size: 14px;
@@ -645,6 +665,13 @@
     flex-direction: column;
     gap: 7px;
     margin-bottom: 24px;
+    flex: 1;
+  }
+  .product-card-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
   }
   .product-list li {
     font-size: 13px;
@@ -674,6 +701,10 @@
     margin-bottom: 6px;
   }
   .btn-outline:hover { border-color: var(--runway); color: var(--runway); }
+  .btn-outline.apple, .btn-outline.microsoft {
+    background:var(--signal);
+    color:#fff;
+  }
 
   /* ── CTA ── */
   #cta {
@@ -796,11 +827,11 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">Enterprise Data Landing Platform</span>
+    <span class="hero-eyebrow">The Enterprise Data Landing Platform</span>
     <h1 class="hero-headline">Your most valuable data<br><em>doesn't go in a chart.</em><br>It goes in the bank.</h1>
     <p class="hero-subhead">When partner data fails, your company fails.</p>
     <p class="hero-body">
-      FlightPath Data ensures every data file from every partner
+    <b>FlightPath Data</b> ensures every data file from every partner
       lands verifiably and repeatably. End expensive manual data checks,
       free-up developers, and stop IT firefighting.
     </p>
@@ -843,7 +874,7 @@
       <div class="concept-item">
         <div class="concept-num">02</div>
         <div class="concept-label">AI-powered Data Preboarding</div>
-        <div class="concept-text">The lowest cost place to stop data corruption is the moment it enters the enterprise. FlightPath Data brings inbound data control to the edge. It identifies, versions, validates, upgrades, and publishes data downstream systems can trust.</div>
+        <div class="concept-text">The lowest cost place to stop data corruption is the moment it enters the enterprise. FlightPath Data brings inbound data control to the edge. It identifies, versions, validates, upgrades, and publishes data down-stream systems can trust.</div>
       </div>
       <div class="concept-item">
         <div class="concept-num">03</div>
@@ -898,7 +929,7 @@
             <div class="card-subtitle-sm">Validation from requirements</div>
           </div>
         </div>
-        <div class="persona-card-image"><image src='images/validation_generation.png'/></div>
+        <div class="persona-card-image"><img src='images/validation_generation.png' alt="FlightPath AI validation generation from plain-English requirements" style="width:100%; height:auto; display:block; border-radius: 6px; margin-top: 4px;"/></div>
       </div>
     </div>
   </div>
@@ -942,7 +973,7 @@
             <div class="card-subtitle-sm white">Pair programmer for CsvPath</div>
           </div>
         </div>
-        <div class="persona-card-image"><image src='images/stage_data_dark.png'/></div>
+        <div class="persona-card-image"><img src='images/stage_data_dark.png' alt="FlightPath Data staging dialog for incoming data files" style="width:100%; height:auto; display:block; border-radius: 6px; margin-top: 4px;"/></div>
 
       </div>
     </div>
@@ -969,10 +1000,10 @@
       </p>
       <ul class="feature-list go">
         <li>Consistent architecture across every data partner project</li>
-        <li>Immutable, versioned file staging — every delivery is traceable and replayable</li>
+        <li>Immutable, versioned files staged traceably and replayable</li>
         <li>Full operational metadata and lineage for every run</li>
-        <li>Webhook integration to connect run outcomes to your alerting and APM stack</li>
-        <li>FlightPath Server, a no-code REST API for downstream access and queries</li>
+        <li>Webhooks connect outcomes to your alerting and APM stack</li>
+        <li>FlightPath Server, a no-code API for downstream access and queries</li>
         <li>OpenLineage compatible for enterprise data observability</li>
         <li><strong>Coming fall 2025:</strong> autonomous AI "Pair Operator" report and response</li>
       </ul>
@@ -1035,9 +1066,11 @@
       <div class="section-label">Product Roadmap</div>
       <h2 class="section-title" style="color: white;">AI across the entire data partnership lifecycle.</h2>
       <p class="section-body">
-        We're building toward a future where every handoff in your data preboarding operation
-        — from requirements to validation to operations — is AI-assisted, traceable, and
-        fully under your control. No black boxes. No vendor lock-in.
+        Atesta Analytics is building an AI-enabled future where every handoff in your data preboarding operation
+        is efficient, traceable, and fully under your control.
+      </p>
+      <p class="section-body-secondary">
+        "When AI works within the guardrails of a robust operational framework, the process is trustworthy. No black boxes or vendor lock-in. FlightPath Data uses AI intelligence to speed up development and management, leaving runtime process in the deterministic world of rules-based governance. Lower risk, lower cost, higher confidence."
       </p>
     </div>
     <div class="timeline">
@@ -1046,7 +1079,7 @@
         <div class="timeline-content">
           <div class="timeline-when">Now — v2.0</div>
           <div class="timeline-title">AI Pair Programmer for Dev &amp; BizOps</div>
-          <div class="timeline-body">Generate and explain validation scripts, create test data, refactor rules — powered by your choice of AI API, running asynchronously in FlightPath.</div>
+          <div class="timeline-body">Generate and explain validation scripts, create test data, refactor rules, powered by your AI API, running asynchronously in FlightPath.</div>
           <div class="timeline-chips">
             <span class="chip active">BizOps AI</span>
             <span class="chip active">Developer AI</span>
@@ -1061,7 +1094,7 @@
         <div class="timeline-content">
           <div class="timeline-when">Fall 2025</div>
           <div class="timeline-title">AI Pair Operator for TechOps / IT</div>
-          <div class="timeline-body">Autonomous monitoring and response for your data landing operation. FlightPath builds the knowledge base now — the AI operational layer comes this fall.</div>
+          <div class="timeline-body">Day-to-day autonomous monitoring and response for your data landing ops. FlightPath builds the knowledge base now. The transformation of ingestion operations comes this fall!</div>
           <div class="timeline-chips">
             <span class="chip">TechOps AI</span>
             <span class="chip">Autonomous monitoring</span>
@@ -1090,54 +1123,64 @@
         <div class="product-name">CsvPath Framework</div>
         <div class="product-desc">The open-source validation and transformation language purpose-built for tabular data preboarding.</div>
         <ul class="product-list">
-          <li>CSVP architecture for collect, store, validate, publish</li>
-          <li>Rules and schema-based validation for CSV, JSONL, Excel</li>
-          <li>Trusted publishing framework</li>
-          <li>Python library — integrates with your existing DataOps</li>
-          <li>OpenLineage compatible</li>
+          <li>Consistent architecture for ingestion</li>
+          <li>Precise validation of CSV, JSONL, Excel</li>
+          <li>Trusted publishing API for downstream</li>
+          <li>Easy Python DataOps automation API</li>
+          <li>Native support for S3, Azure, SFTP, and GCP</li>
+          <li>OpenLineage and OpenTelemetry built-in</li>
+          <li>Many no-code / low-code integration options</li>
         </ul>
-        <a href="https://www.csvpath.org" class="btn-outline">
-          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          csvpath.org
-        </a>
+        <div class="product-card-buttons">
+          <a href="https://www.csvpath.org" class="btn-outline">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            csvpath.org
+          </a>
+        </div>
       </div>
       <div class="product-card">
         <img src="https://www.flightpathdata.com/assets/logos/logo_wordmark_sm.png" alt="FlightPath Data" class="product-logo">
         <div class="product-name">FlightPath Data</div>
-        <div class="product-desc">The desktop application for building, running, and operating your data preboarding projects.</div>
+        <div class="product-desc">The AI-powered frontend for building, running, and managing data preboarding projects.</div>
         <ul class="product-list">
           <li>Manage all data partner preboarding projects</li>
           <li>High-powered CSV, JSON, and CsvPath editor</li>
-          <li>AI pair-programmer and BizOps assistant (new)</li>
-          <li>Async job control and activations (new)</li>
+          <li>Agentic AI development and BizOps assistant</li>
+          <li>Asynchronous job control and run activations</li>
           <li>Metadata discovery and forensic explanation</li>
-          <li>Low-code / no-code project configuration</li>
+          <li>Fast low-code / no-code configuration</li>
+          <li>GUI support for FlightPath Server</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/flightpath-data/id6745823097" class="btn-outline">
-          <svg width="13" height="13" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-37.5-155.5-127.4C46.7 790 0 663.7 0 541.8c0-207.9 134.4-318 268.1-318 71.2 0 130.9 46.4 175.5 46.4 42.7 0 109.6-49.4 192.6-49.4 31 0 108.2 2.6 168.5 80.1zm-172.6-121.2c33.8-40.8 57.6-97.6 57.6-154.4 0-7.8-.6-15.6-2-22.4-54.8 2-118.9 36.5-158.9 81.3-32.7 37.1-60.3 94.3-60.3 151.9 0 8.4 1.4 16.8 2 19.4 3.2.6 8.4 1.4 13.6 1.4 49.4 0 109.6-32.6 148-77.2z"/></svg>
-          macOS
-        </a>
-        <a href="https://apps.microsoft.com/detail/9P9PBPKZ4JDF" class="btn-outline">
-          <svg width="13" height="13" viewBox="0 0 448 512" fill="currentColor"><path d="M0 93.7l183.6-25.3v177H0V93.7zm0 324.6l183.6 25.3V271H0v147.3zM203.8 66L448 32v234H203.8V66zm0 380l244.2 34V278H203.8v168z"/></svg>
-          Windows
-        </a>
+        <div class="product-card-buttons">
+          <a href="https://apps.apple.com/us/app/flightpath-data/id6745823097" class="btn-outline apple">
+            <svg width="13" height="13" viewBox="0 0 814 1000" fill="currentColor"><path d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-37.5-155.5-127.4C46.7 790 0 663.7 0 541.8c0-207.9 134.4-318 268.1-318 71.2 0 130.9 46.4 175.5 46.4 42.7 0 109.6-49.4 192.6-49.4 31 0 108.2 2.6 168.5 80.1zm-172.6-121.2c33.8-40.8 57.6-97.6 57.6-154.4 0-7.8-.6-15.6-2-22.4-54.8 2-118.9 36.5-158.9 81.3-32.7 37.1-60.3 94.3-60.3 151.9 0 8.4 1.4 16.8 2 19.4 3.2.6 8.4 1.4 13.6 1.4 49.4 0 109.6-32.6 148-77.2z"/></svg>
+            macOS
+          </a>
+          <a href="https://apps.microsoft.com/detail/9P9PBPKZ4JDF" class="btn-outline microsoft">
+            <svg width="13" height="13" viewBox="0 0 448 512" fill="currentColor"><path d="M0 93.7l183.6-25.3v177H0V93.7zm0 324.6l183.6 25.3V271H0v147.3zM203.8 66L448 32v234H203.8V66zm0 380l244.2 34V278H203.8v168z"/></svg>
+            Windows
+          </a>
+        </div>
       </div>
       <div class="product-card">
-        <img src="https://www.flightpathdata.com/assets/logos/flightpath-server-logo-4-1024.png" alt="FlightPath Server" class="product-logo" style="height: 32px; width: auto; object-fit: contain; object-position: left;">
+        <img src="https://www.flightpathdata.com/assets/logos/flightpath-server-logo-4-1024.png" alt="FlightPath Server" class="product-logo" style="">
         <div class="product-name">FlightPath Server</div>
-        <div class="product-desc">REST JSON API layer for enterprise integration of CsvPath Framework with your DataOps infrastructure.</div>
+        <div class="product-desc">A self-hosted enterprise integration REST JSON API that connects your DataOps infrastructure.</div>
         <ul class="product-list">
-          <li>REST JSON API to CsvPath Framework</li>
+          <li>REST JSON API running CsvPath Framework</li>
           <li>No-code MFT integrations</li>
           <li>One-click project deployment</li>
-          <li>Project access controls and cross-talk prevention</li>
-          <li>Query archives and staging from downstream systems</li>
+          <li>Project access control and segmentation</li>
+          <li>Query archives from downstream systems</li>
+          <li>Join multi-cloud bronze layers</li>
           <li>Bundled with FlightPath Data</li>
         </ul>
-        <a href="https://www.flightpathdata.com/flightpath.html" class="btn-outline">
-          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          Documentation
-        </a>
+        <div class="product-card-buttons">
+          <a href="https://www.flightpathdata.com/flightpath.html" class="btn-outline">
+            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Documentation
+          </a>
+        </div>
       </div>
     </div>
   </div>
