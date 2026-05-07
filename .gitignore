@@ -9,6 +9,7 @@ _site/
 
 .DS_Store
 old
+.xcf
 
 # Additional Ruby/bundler ignore for when you run: bundle install
 /vendor

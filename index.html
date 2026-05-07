@@ -71,7 +71,7 @@
     gap: 10px;
     text-decoration: none;
   }
-  .nav-logo img { height: 38px; }
+  .nav-logo img { height: 42px; }
   .nav-links {
     display: flex;
     align-items: center;
@@ -323,7 +323,7 @@
   .persona-section {
     padding: 90px 2rem;
   }
-  .persona-section:nth-child(even) { background: var(--paper); }
+  .persona-section:nth-child(odd) { background: var(--paper); }
 
   .persona-layout {
     max-width: 1140px;
@@ -379,6 +379,9 @@
     color: var(--ink-mid);
     line-height: 1.5;
   }
+  .feature-list li strong {
+    white-space:nowrap;
+  }
   .feature-list li::before {
     content: '';
     flex-shrink: 0;
@@ -402,9 +405,11 @@
     background: var(--paper-white);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    padding: 28px;
+    padding: 20px;
     box-shadow: var(--shadow);
+    margin-top:62px;
   }
+  .persona-card-image img { width:520px; }
   .persona-card.dark {
     background: var(--runway);
     border-color: rgba(255,255,255,0.08);
@@ -862,23 +867,24 @@
         <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
         BizOps
       </div>
-      <h2 class="persona-title">Your requirements become validation — automatically.</h2>
+      <h2 class="persona-title">Your requirements translated automatically.</h2>
       <p class="persona-body">
-        The gap between what BizOps needs and what developers build has always been wide and expensive.
-        FlightPath's AI bridges it: describe what good data looks like in plain English,
-        and FlightPath generates the validation scripts. It also explains existing scripts back to you in plain English.
-        You stay in the loop without learning a new language.
+        FlightPath's AI bridges the BizOps, developer gap. Describe requirements in plain English,
+        and let FlightPath generate the validation. Data contracts have never been so easy and effective.
       </p>
       <p class="persona-body">
-        The result: fewer manual data quality checks, fewer escalations, and a shared source of truth
+        FlightPath also explains existing scripts clearly and simply. Your AI pair speaks your language.
+      </p>
+      <p class="persona-body">
+        The result: end manual data quality checking, reduce firefighting, and build a shared source of truth
         that both business and technical teams can read.
       </p>
       <ul class="feature-list bizops">
-        <li>AI-assisted generation of validation scripts from plain-language requirements</li>
-        <li>Plain-English explanations of any validation script — no developer needed</li>
-        <li>Automated checks replace manual file inspection on every delivery</li>
-        <li>Shared validation rules that both business and engineering teams understand</li>
-        <li>Asynchronous AI workflows run on your schedule, not a black-box SaaS</li>
+        <li>AI-assisted validation rules from plain-language requirements</li>
+        <li>Plain-English explanations of any script — no developer needed</li>
+        <li>Automated checks replace manual inspection on every delivery</li>
+        <li>Shared validation rules both business and engineering understand</li>
+        <li>Agentic AI workflows on your schedule in your secure environment</li>
       </ul>
     </div>
     <div class="persona-visual">
@@ -892,10 +898,7 @@
             <div class="card-subtitle-sm">Validation from requirements</div>
           </div>
         </div>
-        <div class="ai-message out">Generate a validation that checks every invoice line has a non-null SKU and a positive unit price.</div>
-        <div class="ai-message">Done. Your validation script checks that <code>sku</code> is present and non-empty, and that <code>unit_price</code> is greater than zero on every row. It will flag and quarantine any file where more than 0% of rows fail. Want me to add a tolerance threshold?</div>
-        <div class="ai-message out">Yes — flag the file but don't block it if under 2% of rows fail.</div>
-        <div class="ai-message">Updated. The rule now allows up to 2% of rows to fail before blocking downstream publishing. The validation is ready to activate on your next incoming delivery.</div>
+        <div class="persona-card-image"><image src='images/validation_generation.png'/></div>
       </div>
     </div>
   </div>
@@ -911,23 +914,21 @@
       </div>
       <h2 class="persona-title">Stop scripting every data partnership from scratch.</h2>
       <p class="persona-body">
-        CsvPath Framework gives you a purpose-built validation language for tabular data —
-        expressive enough for complex business rules, precise enough to treat as a contract.
-        FlightPath Data is the desktop frontend that makes building and operating preboarding projects fast.
+        FlightPath Data gives you a purpose-built, precision tooling for tabular data.
+        With FlightPath you have the ability to quickly deliver what the business requires.
       </p>
       <p class="persona-body">
-        New in this release: AI pair-programmer support. Generate validation scripts from specs,
-        get explanations of existing rules, create test data, and get refactoring assistance —
-        all through asynchronous AI workflows that connect to the APIs you already use.
+        FlightPath pair-programmer support generates validation scripts from specs,
+        explains existing rules, creates test data, and aids refactoring —
+        all through asynchronous agentic workflows that wire-in the APIs you already use.
       </p>
       <ul class="feature-list">
-        <li>CsvPath Framework: a precise validation and transformation language for CSV, JSONL, and Excel</li>
-        <li>AI pair-programmer: generate validations, explain rules, create test data, refactor scripts</li>
-        <li>Asynchronous job control for locally triggered runs — no blocking, no babysitting</li>
-        <li>Activations that automatically trigger runs when data arrives</li>
-        <li>Webhooks triggered by run outcome — connect to your CI/CD, Slack, or alerting pipeline</li>
-        <li>Config variable interpolation — cleanly separate secrets from runtime setup</li>
-        <li>Parquet output, JSON Query, SQL support, and dozens of new functions</li>
+        <li>Precise validation and transformation for CSV, JSONL, and Excel</li>
+        <li>An AI pair-programmer that works alongside you</li>
+        <li>Asynchronous job control — no blocking, no babysitting</li>
+        <li>Activations automatically trigger runs as data arrives</li>
+        <li>Webhooks connect CI/CD, Slack, and alerting pipelines</li>
+        <li>Parquet output, JSON Query, SQL support, and dozens of functions</li>
       </ul>
     </div>
     <div class="persona-visual">
@@ -941,13 +942,8 @@
             <div class="card-subtitle-sm white">Pair programmer for CsvPath</div>
           </div>
         </div>
-        <div class="ai-message dark-in">Generate a CsvPath validation that flags any row where the order_date is more than 90 days in the past and the status column is still 'pending'.</div>
-        <div style="background: rgba(255,255,255,0.05); border-radius: 8px; padding: 14px; font-family: 'DM Sans', monospace; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 8px; white-space: pre-wrap;">$[*][
-  @.status == "pending",
-  @[days_between(@.order_date, now()) > 90]
-  ~&gt; @.flag("stale_pending")
-]</div>
-        <div class="ai-message dark-in">This flags rows where status is 'pending' and order_date is more than 90 days old. Want me to write a test dataset for this rule?</div>
+        <div class="persona-card-image"><image src='images/stage_data_dark.png'/></div>
+
       </div>
     </div>
   </div>
@@ -961,26 +957,24 @@
         <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
         TechOps / IT
       </div>
-      <h2 class="persona-title">One framework for every data partner. Full visibility across all of them.</h2>
+      <h2 class="persona-title">One framework for every data partner. Full visibility across all.</h2>
       <p class="persona-body">
-        IT teams have always owned the risk of data partner onboarding, but rarely owned the tooling.
+        IT teams have always owned the risk of data partners, but rarely the tooling.
         FlightPath changes that with a consistent, auditable framework that handles every delivery
-        the same way — regardless of format, partner, or schedule.
+        exactly the same way.
       </p>
       <p class="persona-body">
-        Connect to your APM, OpenLineage platform, or SysOps tooling. Every delivery produces full
-        lineage and operational metadata. When something goes wrong, you don't spend an hour figuring
-        out what happened — FlightPath tells you exactly where in the pipeline the delivery failed
-        and why.
+        Connect OpenTelemetry APM, an OpenLineage platform, or SysOps tooling. Every delivery has full
+        lineage and operational metadata. Don't waste time figuring out what happened.
       </p>
       <ul class="feature-list go">
-        <li>Consistent CSVP architecture across every data partner project</li>
+        <li>Consistent architecture across every data partner project</li>
         <li>Immutable, versioned file staging — every delivery is traceable and replayable</li>
         <li>Full operational metadata and lineage for every run</li>
         <li>Webhook integration to connect run outcomes to your alerting and APM stack</li>
-        <li>FlightPath Server: REST API for downstream query of archives and staging</li>
-        <li>OpenLineage compatible for enterprise observability integration</li>
-        <li><strong>Coming fall 2025:</strong> AI "Pair Operator" for autonomous TechOps monitoring and response</li>
+        <li>FlightPath Server, a no-code REST API for downstream access and queries</li>
+        <li>OpenLineage compatible for enterprise data observability</li>
+        <li><strong>Coming fall 2025:</strong> autonomous AI "Pair Operator" report and response</li>
       </ul>
     </div>
     <div class="persona-visual">
